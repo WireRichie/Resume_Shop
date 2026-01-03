@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResumeShop - Conversion-Focused Resumes</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Inter font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        /* Style for the mobile menu toggle (hidden by default) */
+        #mobile-menu-content {
+            transition: opacity 0.2s ease-in-out, max-height 0.3s ease-out;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+        }
+        .menu-open #mobile-menu-content {
+            max-height: 300px; /* arbitrary large value */
+            opacity: 1;
+            padding: 1rem;
+        }
+        /* Custom styles for smooth transitions on hover/focus */
+        .btn-primary {
+            transition: transform 0.1s ease-out, background-color 0.1s ease-out;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .card-hover:hover {
+            transform: translateY(-6px);
+            transition: transform 0.2s ease-out;
+        }
+    </style>
+</head>
+<body class="text-slate-900">
+
+    <div id="app" class="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-100">
+
+        <!-- Header -->
+        <header class="max-w-6xl mx-auto p-6 flex items-center justify-between sticky top-0 z-40 bg-white/90 backdrop-blur-sm border-b border-slate-100">
+            <div class="flex items-center gap-3">
+                <div class="rounded-md bg-gradient-to-r from-indigo-600 to-emerald-400 p-2 text-white font-bold">ORSS</div>
+                <div>
+                    <h1 class="font-extrabold text-lg">Oracle_Resume_Service_Shop</h1>
+                    <p class="text-xs text-slate-500">Conversion-focused resumes — crafted fast</p>
+                </div>
+            </div>
+
+            <nav class="hidden md:flex gap-6 items-center text-sm text-slate-700">
+                <a href="#features" class="hover:underline hover:text-indigo-600">Features</a>
+                <a href="#pricing" class="hover:underline hover:text-indigo-600">Pricing</a>
+                <a href="#reviews" class="hover:underline hover:text-indigo-600">Reviews</a>
+                <a href="#about" class="hover:underline hover:text-indigo-600">About</a>
+                <button class="px-4 py-2 rounded-md bg-indigo-600 text-white shadow-md btn-primary" onclick="scrollToSection('order')">Order Now</button>
+            </nav>
+
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md hover:bg-slate-100 transition" aria-label="menu" onclick="toggleMobileMenu()">
+                <svg class="w-6 h-6 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
+        </header>
+
+        <!-- Mobile Menu Content -->
+        <div id="mobile-menu-content" class="md:hidden bg-white shadow-xl z-30">
+            <div class="flex flex-col gap-3">
+                <a href="#features" class="py-2 hover:bg-slate-50 px-2 rounded-md" onclick="toggleMobileMenu()">Features</a>
+                <a href="#pricing" class="py-2 hover:bg-slate-50 px-2 rounded-md" onclick="toggleMobileMenu()">Pricing</a>
+                <a href="#reviews" class="py-2 hover:bg-slate-50 px-2 rounded-md" onclick="toggleMobileMenu()">Reviews</a>
+                <a href="#about" class="py-2 hover:bg-slate-50 px-2 rounded-md" onclick="toggleMobileMenu()">About</a>
+                <button class="px-4 py-2 rounded-md bg-indigo-600 text-white btn-primary" onclick="toggleMobileMenu(); scrollToSection('order')">Order Now</button>
+            </div>
+        </div>
+        
+        <main class="max-w-6xl mx-auto p-6">
+            <!-- Hero -->
+            <section class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center py-12">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-extrabold leading-tight">
+                        Resumes that open doors — beautiful, modern, ATS-friendly
+                    </h2>
+                    <p class="mt-4 text-slate-600">Fast turnaround, tailored messaging, and a design recruiters love. Pick a package, tell us your goals, and we'll craft a resume that converts.</p>
+
+                    <div class="mt-6 flex gap-3">
+                        <button class="px-6 py-3 rounded-lg bg-emerald-500 text-white font-semibold shadow-xl btn-primary hover:bg-emerald-600" onclick="scrollToSection('order')">Order Resume</button>
+                        <button class="px-6 py-3 rounded-lg border border-slate-200 hover:bg-slate-50 transition" onclick="scrollToSection('features')">See Features</button>
+                    </div>
+
+                    <div class="mt-8 grid grid-cols-2 gap-4 text-sm text-slate-600">
+                        <div class="flex items-start gap-3">
+                            <!-- Sun Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-indigo-500"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                            <div>
+                                <div class="font-semibold">Quick Turnaround</div>
+                                <div class="text-xs">Most orders done within 48–72 hours.</div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <!-- Users Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-indigo-500"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                            <div>
+                                <div class="font-semibold">Recruiter-friendly</div>
+                                <div class="text-xs">Optimized to pass ATS and impress humans.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Featured Package Card -->
+                <div class="bg-white rounded-2xl p-6 shadow-xl border border-slate-200">
+                    <div class="rounded-lg overflow-hidden border border-slate-100">
+                        <div class="bg-gradient-to-r from-indigo-600 to-emerald-400 p-6 text-white">
+                            <h3 class="font-bold text-xl">Starter Resume</h3>
+                            <p class="text-sm opacity-90">Clean, professional layout. ATS friendly.</p>
+                            <div class="mt-4 text-3xl font-extrabold" id="hero-price">$39</div>
+                        </div>
+
+                        <div class="p-4 bg-white">
+                            <ul class="text-sm text-slate-600 space-y-2">
+                                <li>One-page resume</li>
+                                <li>Targeted for one role</li>
+                                <li>Two rounds of revision</li>
+                            </ul>
+
+                            <div class="mt-4">
+                                <button class="w-full py-3 rounded-md bg-indigo-600 text-white btn-primary hover:bg-indigo-700" onclick="selectPackage('starter'); scrollToSection('order');">Select Starter</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- Features -->
+            <section id="features" class="py-16">
+                <h3 class="text-3xl font-extrabold text-center">Core Features</h3>
+                <p class="text-slate-600 mt-2 text-center max-w-xl mx-auto">Everything you need to present your professional story — clean design, optimized keywords, and real human copywriting.</p>
+
+                <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Feature 1: ATS Optimization -->
+                    <div class="p-6 bg-white rounded-xl shadow-lg border border-slate-100 card-hover">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7 mb-4 text-indigo-600"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><path d="M14 2v6h6"/><path d="m9 15 2 2 4-4"/></svg>
+                        <h4 class="font-semibold text-lg">ATS Optimization</h4>
+                        <p class="text-sm mt-2 text-slate-600">Keywording and structure designed to pass applicant tracking systems.</p>
+                    </div>
+
+                    <!-- Feature 2: Human-Readable Copy -->
+                    <div class="p-6 bg-white rounded-xl shadow-lg border border-slate-100 card-hover">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7 mb-4 text-indigo-600"><path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2"/><rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="12" cy="10" r="3"/></svg>
+                        <h4 class="font-semibold text-lg">Human-Readable Copy</h4>
+                        <p class="text-sm mt-2 text-slate-600">We tell your story in a concise, achievement-focused way that recruiters actually read.</p>
+                    </div>
+
+                    <!-- Feature 3: Secure Payments -->
+                    <div class="p-6 bg-white rounded-xl shadow-lg border border-slate-100 card-hover">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7 mb-4 text-indigo-600"><rect width="20" height="14" x="2" y="5" rx="2"/><path d="M2 10h20"/><path d="M7 15h.01"/><path d="M17 15h.01"/></svg>
+                        <h4 class="font-semibold text-lg">Secure Payments</h4>
+                        <p class="text-sm mt-2 text-slate-600">Stripe-ready checkout or alternative local gateways supported.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pricing -->
+            <section id="pricing" class="py-16 bg-white rounded-xl shadow-inner my-12 p-8">
+                <h3 class="text-3xl font-extrabold text-center">Simple Pricing, Maximum Impact</h3>
+                <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div id="price-starter" class="p-6 rounded-xl shadow-lg border border-slate-200 transition-all">
+                        <h4 class="font-bold text-xl">Starter</h4>
+                        <div class="text-4xl font-extrabold mt-2">$39</div>
+                        <p class="text-sm text-slate-600 mt-2">One-page resume, 2 revisions</p>
+                        <ul class="text-sm text-slate-600 mt-4 space-y-2">
+                            <li>Optimized one-page PDF</li>
+                            <li>Two rounds of minor edits</li>
+                            <li>ATS Keyword analysis</li>
+                        </ul>
+                        <div class="mt-6 flex gap-2">
+                            <button class="px-4 py-2 rounded-md bg-indigo-600 text-white btn-primary" onclick="selectPackage('starter')">Choose</button>
+                            <button class="px-4 py-2 rounded-md border hover:bg-slate-50" onclick="selectPackage('starter'); scrollToSection('order')">Order</button>
+                        </div>
+                    </div>
+
+                    <div id="price-pro" class="p-6 rounded-xl shadow-lg border border-slate-200 transition-all">
+                        <h4 class="font-bold text-xl">Pro (Best Value)</h4>
+                        <div class="text-4xl font-extrabold mt-2">$79</div>
+                        <p class="text-sm text-slate-600 mt-2">Two-page resume, cover letter</p>
+                        <ul class="text-sm text-slate-600 mt-4 space-y-2">
+                            <li>Includes the Cover Letter</li>
+                            <li>Multi-page career history</li>
+                            <li>Priority 48-hour delivery</li>
+                        </ul>
+                        <div class="mt-6 flex gap-2">
+                            <button class="px-4 py-2 rounded-md bg-indigo-600 text-white btn-primary" onclick="selectPackage('pro')">Choose</button>
+                            <button class="px-4 py-2 rounded-md border hover:bg-slate-50" onclick="selectPackage('pro'); scrollToSection('order')">Order</button>
+                        </div>
+                    </div>
+
+                    <div id="price-premium" class="p-6 rounded-xl shadow-lg border border-slate-200 transition-all">
+                        <h4 class="font-bold text-xl">Premium</h4>
+                        <div class="text-4xl font-extrabold mt-2">$149</div>
+                        <p class="text-sm text-slate-600 mt-2">Executive resume + LinkedIn makeover</p>
+                        <ul class="text-sm text-slate-600 mt-4 space-y-2">
+                            <li>Executive-level focus</li>
+                            <li>Comprehensive LinkedIn profile review</li>
+                            <li>Unlimited revisions for 7 days</li>
+                        </ul>
+                        <div class="mt-6 flex gap-2">
+                            <button class="px-4 py-2 rounded-md bg-indigo-600 text-white btn-primary" onclick="selectPackage('premium')">Choose</button>
+                            <button class="px-4 py-2 rounded-md border hover:bg-slate-50" onclick="selectPackage('premium'); scrollToSection('order')">Order</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Reviews -->
+            <section id="reviews" class="py-16">
+                <h3 class="text-3xl font-extrabold text-center">What clients say</h3>
+                <div id="review-grid" class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Reviews will be populated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Order / Checkout Form -->
+            <section id="order" class="py-16">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                    <div class="bg-white p-8 rounded-xl shadow-2xl border border-slate-100">
+                        <h3 class="text-xl font-bold">Place an order</h3>
+                        <p class="text-sm text-slate-500 mt-1">Tell us about the role, industry, and any achievements to highlight.</p>
+
+                        <form id="order-form" class="mt-6 space-y-4" onsubmit="submitOrder(event)">
+                            <div>
+                                <label class="text-sm font-medium">Full name *</label>
+                                <input id="input-name" required class="mt-1 block w-full rounded-md border border-slate-300 p-2 focus:ring-indigo-500 focus:border-indigo-500" placeholder="Jane Doe" oninput="setState('name', this.value)" />
+                            </div>
+                            <div>
+                                <label class="text-sm font-medium">Email *</label>
+                                <input id="input-email" type="email" required class="mt-1 block w-full rounded-md border border-slate-300 p-2 focus:ring-indigo-500 focus:border-indigo-500" placeholder="jane@example.com" oninput="setState('email', this.value)" />
+                            </div>
+                            <div>
+                                <label class="text-sm font-medium">Target role *</label>
+                                <input id="input-role" required class="mt-1 block w-full rounded-md border border-slate-300 p-2 focus:ring-indigo-500 focus:border-indigo-500" placeholder="Senior Frontend Engineer" oninput="setState('role', this.value)" />
+                            </div>
+
+                            <div>
+                                <label class="text-sm font-medium">Package</label>
+                                <select id="select-package" class="mt-1 block w-full rounded-md border border-slate-300 p-2 focus:ring-indigo-500 focus:border-indigo-500" onchange="selectPackage(this.value)">
+                                    <option value="starter">Starter — $39</option>
+                                    <option value="pro">Pro — $79</option>
+                                    <option value="premium">Premium — $149</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="text-sm font-medium">Details (achievements, skills, links)</label>
+                                <textarea id="input-details" class="mt-1 block w-full rounded-md border border-slate-300 p-2 h-28 focus:ring-indigo-500 focus:border-indigo-500" placeholder="Describe your recent role and achievements" oninput="setState('details', this.value)"></textarea>
+                            </div>
+
+                            <div class="flex items-center justify-between border-t pt-4">
+                                <div class="text-sm text-slate-600">Total payable</div>
+                                <div class="text-2xl font-extrabold text-indigo-600" id="total-price">$39</div>
+                            </div>
+
+                            <div class="flex gap-3 pt-2">
+                                <button type="submit" class="px-6 py-3 rounded-md bg-emerald-500 text-white font-semibold btn-primary hover:bg-emerald-600">Proceed to payment</button>
+                                <button type="button" class="px-6 py-3 rounded-md border border-slate-300 hover:bg-slate-50" onclick="fillDemo()">Fill demo</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <aside class="p-8 rounded-xl bg-gradient-to-b from-white to-slate-50 border border-slate-200 shadow-inner sticky top-24">
+                        <h4 class="font-bold text-lg">Why choose ResumeShop</h4>
+                        <ul class="mt-4 text-slate-600 space-y-2 text-sm">
+                            <li class="flex items-center gap-2"><span class="text-indigo-500 font-bold">•</span> Human writers + recruiter review</li>
+                            <li class="flex items-center gap-2"><span class="text-indigo-500 font-bold">•</span> ATS & recruiter-first design</li>
+                            <li class="flex items-center gap-2"><span class="text-indigo-500 font-bold">•</span> Custom keyword optimization</li>
+                            <li class="flex items-center gap-2"><span class="text-indigo-500 font-bold">•</span> Fast revision cycles</li>
+                        </ul>
+
+                        <div class="mt-8 pt-4 border-t border-slate-100">
+                            <h5 class="font-semibold">Satisfaction guarantee</h5>
+                            <p class="text-sm text-slate-600 mt-1">Two rounds of revisions included. If you don't like the result, we'll keep working until it's right.</p>
+                        </div>
+                    </aside>
+                </div>
+            </section>
+
+            <!-- About -->
+            <section id="about" class="py-16">
+                <div class="bg-white p-8 rounded-xl shadow-lg border border-slate-100">
+                    <h3 class="text-3xl font-extrabold">About ResumeShop</h3>
+                    <p class="text-slate-600 mt-2 max-w-3xl">We're a small team of copywriters and designers who love making resumes that work. We focus on clarity, impact, and honesty. No buzzwords, just results.</p>
+                    <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div>
+                            <div class="font-semibold text-lg">Turnaround</div>
+                            <div class="text-sm text-slate-600">48–72 hours for most packages</div>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-lg">Support</div>
+                            <div class="text-sm text-slate-600">Email & chat support during business hours</div>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-lg">Refunds</div>
+                            <div class="text-sm text-slate-600">Partial refunds for unmet expectations after review</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="py-12 text-sm text-slate-600 border-t border-slate-200 mt-12">
+                <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+                    <div>© <span id="current-year"></span> ResumeShop • Built with care</div>
+                    <div class="flex gap-4">
+                        <a href="#" class="hover:text-indigo-600">Terms</a>
+                        <a href="#" class="hover:text-indigo-600">Privacy</a>
+                        <a href="#" class="hover:text-indigo-600">Contact</a>
+                    </div>
+                </div>
+            </footer>
+        </main>
+
+        <!-- Checkout modal (fake) -->
+        <div id="checkout-modal" class="fixed inset-0 bg-black/40 flex items-center justify-center z-50 transition-opacity duration-300 opacity-0 pointer-events-none">
+            <div class="bg-white rounded-xl p-6 w-full max-w-md shadow-2xl transition-transform duration-300 scale-90">
+                <h4 class="font-bold text-xl">Pay <span id="modal-price"></span></h4>
+                <p class="text-sm text-slate-600 mt-2">Test payment (demo). Integrate a real payment provider for actual transactions.</p>
+
+                <div class="mt-4 space-y-3">
+                    <div>
+                        <label class="text-sm">Card number (demo)</label>
+                        <input class="mt-1 block w-full rounded-md border border-slate-300 p-3" placeholder="4242 4242 4242 4242" />
+                    </div>
+                    <div class="flex gap-2">
+                        <input class="block w-1/3 rounded-md border border-slate-300 p-3" placeholder="MM/YY" />
+                        <input class="block w-1/3 rounded-md border border-slate-300 p-3" placeholder="CVC" />
+                        <input class="block w-1/3 rounded-md border border-slate-300 p-3" placeholder="ZIP" />
+                    </div>
+                </div>
+
+                <div class="mt-6 flex justify-end gap-2">
+                    <button class="px-4 py-2 rounded-md border border-slate-300 hover:bg-slate-50" onclick="hideCheckout()">Cancel</button>
+                    <button id="modal-pay-button" class="px-4 py-2 rounded-md bg-indigo-600 text-white btn-primary hover:bg-indigo-700" onclick="fakePay()">Pay</button>
+                </div>
+            </div>
+        </div>
+
+         <!-- Confirmation Modal (for alerts) -->
+        <div id="message-modal" class="fixed inset-0 bg-black/40 flex items-center justify-center z-[100] transition-opacity duration-300 opacity-0 pointer-events-none">
+            <div class="bg-white rounded-xl p-6 w-full max-w-sm shadow-2xl">
+                <h4 class="font-bold text-xl text-indigo-600" id="message-title">Notification</h4>
+                <p class="text-sm text-slate-600 mt-2" id="message-body">This is a message.</p>
+                <div class="mt-4 flex justify-end">
+                    <button class="px-4 py-2 rounded-md bg-indigo-600 text-white" onclick="hideMessage()">Close</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // --- State Management (Replicating React State) ---
+        let state = {
+            selectedPackage: "starter",
+            name: "",
+            email: "",
+            role: "",
+            details: "",
+            price: 39,
+            mobileMenu: false,
+            showCheckout: false,
+            reviews: [
+                { id: 1, name: "Aisha R.", role: "Product Manager", rating: 5, text: "Transformed my CV into a recruiter magnet. Landed three interviews in two weeks." },
+                { id: 2, name: "Mark L.", role: "Software Engineer", rating: 5, text: "Sleek, modern, and ATS-friendly. The turnaround was unbelievably fast." },
+                { id: 3, name: "Chloe P.", role: "Marketing Specialist", rating: 4, text: "Great design and clear messaging. Worth every penny." }
+            ]
+        };
+
+        const packages = {
+            'starter': 39,
+            'pro': 79,
+            'premium': 149
+        };
+
+        // --- Core UI Update Function ---
+        function updatePrice() {
+            const newPrice = packages[state.selectedPackage] || 39;
+            if (state.price !== newPrice) {
+                state.price = newPrice;
+            }
+        }
+
+        function renderApp() {
+            updatePrice();
+
+            // 1. Update package selection styling
+            ['starter', 'pro', 'premium'].forEach(key => {
+                const element = document.getElementById('price-' + key);
+                if (element) {
+                    if (key === state.selectedPackage) {
+                        element.className = element.className.replace('bg-white', 'bg-indigo-50').replace('border-slate-200', 'ring-2 ring-indigo-300');
+                    } else {
+                        element.className = element.className.replace('bg-indigo-50', 'bg-white').replace('ring-2 ring-indigo-300', 'border-slate-200');
+                    }
+                }
+            });
+
+            // 2. Update price displays
+            document.getElementById('total-price').textContent = `$${state.price}`;
+            document.getElementById('modal-price').textContent = `$${state.price}`;
+            document.getElementById('modal-pay-button').textContent = `Pay $${state.price}`;
+
+            // 3. Update Order Form state
+            document.getElementById('select-package').value = state.selectedPackage;
+
+            // 4. Handle Modals
+            const checkoutModal = document.getElementById('checkout-modal');
+            const app = document.getElementById('app');
+            if (state.showCheckout) {
+                checkoutModal.classList.remove('opacity-0', 'pointer-events-none');
+                checkoutModal.querySelector('div').classList.remove('scale-90');
+            } else {
+                checkoutModal.classList.add('opacity-0', 'pointer-events-none');
+                checkoutModal.querySelector('div').classList.add('scale-90');
+            }
+
+            // 5. Handle Mobile Menu (controlled by toggleMobileMenu)
+            // No need to explicitly handle here as the `toggleMobileMenu` function does it on click.
+
+            // 6. Populate Reviews (done only on initial load in initReviews)
+        }
+
+        // --- State Setter Function ---
+        function setState(key, value) {
+            state[key] = value;
+            renderApp();
+        }
+
+        // --- Event Handlers and Helpers ---
+
+        function showMessage(title, body) {
+            document.getElementById('message-title').textContent = title;
+            document.getElementById('message-body').textContent = body;
+            const modal = document.getElementById('message-modal');
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modal.classList.add('opacity-100');
+        }
+
+        function hideMessage() {
+             const modal = document.getElementById('message-modal');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            modal.classList.remove('opacity-100');
+        }
+
+        function toggleMobileMenu() {
+            state.mobileMenu = !state.mobileMenu;
+            const content = document.getElementById('mobile-menu-content');
+            const header = document.querySelector('header');
+            if (state.mobileMenu) {
+                content.parentElement.classList.add('menu-open');
+            } else {
+                content.parentElement.classList.remove('menu-open');
+            }
+        }
+
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function selectPackage(key) {
+            setState('selectedPackage', key);
+        }
+
+        function submitOrder(e) {
+            e.preventDefault();
+            // Basic validation check (inputs should also have 'required')
+            if (!document.getElementById('input-name').value || !document.getElementById('input-email').value || !document.getElementById('input-role').value) {
+                showMessage("Validation Error", "Please ensure your name, email, and target role are filled out before proceeding to checkout.");
+                return;
+            }
+
+            // Update state variables from form inputs before showing modal
+            state.name = document.getElementById('input-name').value;
+            state.email = document.getElementById('input-email').value;
+            state.role = document.getElementById('input-role').value;
+            state.details = document.getElementById('input-details').value;
+            state.selectedPackage = document.getElementById('select-package').value;
+
+            setState('showCheckout', true);
+        }
+
+        function hideCheckout() {
+            setState('showCheckout', false);
+        }
+
+        function fakePay() {
+            setState('showCheckout', false);
+            showMessage("Order Confirmation", `Order for ${state.name} placed successfully! A confirmation has been sent to ${state.email}. Thank you for your business.`);
+            
+            // Reset form/state
+            setState('name', '');
+            setState('email', '');
+            setState('role', '');
+            setState('details', '');
+            setState('selectedPackage', 'starter');
+
+            document.getElementById('input-name').value = '';
+            document.getElementById('input-email').value = '';
+            document.getElementById('input-role').value = '';
+            document.getElementById('input-details').value = '';
+            document.getElementById('select-package').value = 'starter';
+            
+            renderApp();
+        }
+        
+        function fillDemo() {
+            document.getElementById('input-name').value = 'Demo User';
+            document.getElementById('input-email').value = 'demo@example.com';
+            document.getElementById('input-role').value = 'Software Engineer';
+            document.getElementById('input-details').value = '5 years at Company X, built project Y which saved $1M.';
+
+            setState('name', 'Demo User');
+            setState('email', 'demo@example.com');
+            setState('role', 'Software Engineer');
+            setState('details', '5 years at Company X, built project Y which saved $1M.');
+        }
+
+        function initReviews() {
+            const grid = document.getElementById('review-grid');
+            grid.innerHTML = state.reviews.map(r => `
+                <div class="p-6 bg-white rounded-xl shadow-lg border border-slate-100 cursor-pointer card-hover">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-indigo-100 text-indigo-800 flex items-center justify-center font-bold">${r.name.split(' ')[0][0]}</div>
+                        <div>
+                            <div class="font-semibold">${r.name}</div>
+                            <div class="text-xs text-slate-500">${r.role}</div>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-slate-600 italic">"${r.text}"</p>
+                    <div class="mt-4 text-yellow-500 text-xl">
+                        ${'★'.repeat(r.rating)}<span class="text-slate-200">${'★'.repeat(5 - r.rating)}</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        // --- Initialization on Load ---
+        window.onload = function() {
+            // Set the current year in the footer
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+
+            // Initial rendering of dynamic content
+            initReviews();
+            renderApp();
+        };
+
+    </script>
+</body>
+</html>
